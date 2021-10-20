@@ -27,11 +27,25 @@ Route::get('/contact',[ TestController::class , 'contact' ] )->name('contact');
 Route::get('/somme/{a}',[ TestController::class , 'somme' ] )->name('somme');
 
 
- Route::get('/post/ajouter' , [ TestController::class , 'ajouterPublication']);
-
 
 // Route::get('/post/ajouter/{title}/{description}' , [ TestController::class , 'ajouterPublication']);
 
-Route::get('/posts/all' , [ TestController::class , 'postsAfficherTout']);
+Route::post('/post/ajouter' , [ PostController::class , 'ajouterPublication'])->name('AddPost');
+
+Route::get('/posts/all' , [ PostController::class , 'postsAfficherTout'])->name('posts');
 
 Route::get('/post/show/{id}' , [ PostController::class , 'postShow']);
+
+Route::get('/post/form',[ PostController::class , 'AjoutForm'])->name('PostForm');
+
+Route::get('/post/delete/{id}',[ PostController::class , 'deletePost'])->name('PostDelete');
+
+Route::get('/post/edit/{id}',[ PostController::class , 'editPost'])->name('PostEdit');
+
+Route::post('/post/data/update',[ PostController::class , 'updatePost'])->name('PostUpdate');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::post('/post/chercher', [ PostController::class, 'searchPost' ])->name('searchPost');

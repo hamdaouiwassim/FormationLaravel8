@@ -1,0 +1,12 @@
+routing    :
+            routes/web.php
+                        => Route::('chemni',[ ControllerName::class,'functionName'])->name('routeName');
+Controller :
+            App/http/controllers
+Models     :
+            App/Models
+Migration  :
+            Database/migrations
+Views      :
+            resources/Views
+            
